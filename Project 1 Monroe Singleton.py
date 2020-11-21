@@ -125,7 +125,7 @@ def save_into_file(filename):
     
 def print_all():
     print('ID\tName\tMakeupArtist\tBrand\tPrice\tQuantity')   
-    for recordName in recordsDict:
+    for recordName in productsDict:
         ID = productsDict[recordName][0]
         makeupartist = productsDict[recordName][1]
         brand = productsDict[recordName][2]
