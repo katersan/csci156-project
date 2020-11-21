@@ -127,8 +127,8 @@ def print_all():
     print('ID\tName\tMakeupArtist\tBrand\tPrice\tQuantity')   
     for recordName in recordsDict:
         ID = productsDict[recordName][0]
-        artist = productsDict[recordName][1]
-        style = productsDict[recordName][2]
+        makeupartist = productsDict[recordName][1]
+        brand = productsDict[recordName][2]
         price = productsDict[recordName][3]
         quantity = productsDict[recordName][4]
         print('%d\t%s\t%s\t%s\t%g\t%d' % (ID, recordName, makeupartist, brand, price, quantity))
