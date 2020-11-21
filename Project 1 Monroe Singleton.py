@@ -43,13 +43,13 @@ def print_by_makeup(makeup_artist):
 def add_product():
     global productsDict, currentID
     
-    recordName = input('Enter makeup artist: ')
+    makeupName = input('Enter makeup artist: ')
     brandname = input('Enter brand name: ')
     product = input('Enter product: ')
     price = float(input('Enter price: '))
     quantity = int(input('Enter quantity: '))
-    if recordName not in productsDict:
-        productsDict[recordName] = [currentID, brandname, product, price, quantity]
+    if makeupName not in productsDict:
+        productsDict[makeupName] = [currentID, brandname, product, price, quantity]
         currentID += 1
     else:
         print('Product associated with brand name exists')
@@ -64,16 +64,16 @@ def revise_makeup_product():
         print('Press enter to skip')
         artist = input('Enter makeup artist name: ')
         if artist != '':
-            record[1] = artist
+            product[1] = brand
         brand = input('Enter brand name: ')
         if brand != '':
-            record[2] = style
+            product[2] = product
         price = input('Enter price: ')
         if price != '':
-            record[3] = float(price)
+            product[3] = float(price)
         quantity = input('Enter quantity: ')
         if quantity != '':
-            record[4] = int(quantity)
+            product[4] = int(quantity)
             
             
             
@@ -89,12 +89,12 @@ def load_from_file():
     for line in lines:
         parsedLine = line.split(',')
         recordID = int(parsedLine[0])
-        recordName = parsedLine[1]
-        artist = parsedLine[2]
-        style = parsedLine[3]
+        makeupName = parsedLine[1]
+        brand = parsedLine[2]
+        product = parsedLine[3]
         price = float(parsedLine[4])
         quantity = int(parsedLine[5])
-        recordsDict[recordName] = [recordID, makeupartist, brand, price, quantity]
+        productsDict[makeupName] = [recordID, makeupartist, brand, price, quantity]
         currentID = max(currentID, recordID)
 
     fin.close()
@@ -103,23 +103,20 @@ def load_from_file():
 
 def total_sum():
     global productsDict
-    product = productsDict[name]
     total = 0
-    for record in productsDict:
-        total += productsDict[record][3]*productsDict[product][4]
+    for product in productsDict:
+        total += productsDict[product][3]*productsDict[product][4]
     return total
 
 def save_into_file(filename):
-    #csv
     fout = open(filename, 'w')
-    for recordName in productsDict:
-        currentID = productsDict[recordName][0]
-        makeupartist = productsDict[recordName][1]
-        brand = productsDict[recordName][2]
-        price = productsDict[recordName][3]
-        quantity = productsDict[recordName][4]
-        fout.write('%d,%s,%s,%s,%g,%d\n' % (currentID, recordName,
-                                          makeupartist, brand, price, quantity) )
+    for makeupName in productsDict:
+        currentID = productsDict[makeupName][0]
+        makeupartist = productsDict[makeupName][1]
+        brand = productsDict[makeupName][2]
+        price = productsDict[makeupName][3]
+        quantity = productsDict[makeupName][4]
+        fout.write('%d,%s,%s,%s,%g,%d\n' % (currentID, recordName,makeupartist, brand, price, quantity) )
 
     fout.close()
     
