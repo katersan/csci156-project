@@ -1,39 +1,5 @@
 productsDict = {} 
 currentID = 1
-#idd is ID
-class ShoppingCart():
-    def __init__(self,palettes,lipstick,blush,mascara):
-        self.total = 0
-        self.items = {}
-        self.palettes = palettes
-        self.lipstick = lipstick
-        self.blush = blush
-        self.mascara = mascara
-        
-    def add_item(self,idd,quantity,price):
-        self.total = quantity * price
-        self.items = {idd:quantity}
-    
-    def del_item():
-        self.total -= quantity * price
-        if quantity > self.items:
-            print('Wanted value is above item stock!')
-            return self.total
-
-    def checkout():
-        pass
-    
-class Palettes(ShoppingCart):
-    def __init__(self,natural,colorful,punk):
-        self.natural = natural
-        self.colorful = colorful
-        self.punk = punk
-class Lipstick(ShoppingCart):
-    def __init__(self,liquid,velvet,matte,gloss):
-        self.liquid = liquid
-        self.velvet = velvet
-        self.matte = matte
-        self.gloss = gloss
 
 def order():
     orderList = []
