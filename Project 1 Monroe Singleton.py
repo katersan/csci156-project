@@ -6,9 +6,7 @@ def order():
     ID = 1
     subtotal = 0
     while True:
-        A_makeup_artist = input('Enter makeup artist name: ')
-        print_by_makeup(A_makeup_artist)
-        name = input('Type makeup brand name: ')
+        name = input('Type makeup artist name: ')
         makeup_artist = productsDict[name][1]
         price = productsDict[name][3]
         quantity = productsDict[name][4]
@@ -62,7 +60,7 @@ def revise_makeup_product():
     else:
         product = productsDict[name]
         print('Press enter to skip')
-        artist = input('Enter makeup artist name: ')
+        artist = input('Enter product name: ')
         if artist != '':
             product[1] = brand
         brand = input('Enter brand name: ')
@@ -116,7 +114,7 @@ def save_into_file(filename):
         brand = productsDict[makeupName][2]
         price = productsDict[makeupName][3]
         quantity = productsDict[makeupName][4]
-        fout.write('%d,%s,%s,%s,%g,%d\n' % (currentID, recordName,makeupartist, brand, price, quantity) )
+        fout.write('%d,%s,%s,%s,%g,%d\n' % (currentID, makeupName,makeupartist, brand, price, quantity) )
 
     fout.close()
     
@@ -176,3 +174,4 @@ def main():
             
 
 main()
+
